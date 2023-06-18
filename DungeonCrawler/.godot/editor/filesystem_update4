@@ -1,0 +1,6 @@
+res://world.tscn
+res://player.tscn
+res://Scenes/world.tscn
+res://Scenes/player.tscn
+res://Scripts/player.gd
+res://Scenes/player_splitanim.tscn

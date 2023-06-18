@@ -1,0 +1,13 @@
+2a60927148abd1d33b818b535e306557
+::res://::1687046768
+icon.svg::CompressedTexture2D::6231719088279361366::1687044662::1687044667::1::::<><>::
+::res://ASSETS/::1687045289
+::res://ASSETS/Characters/::1687047283
+Atscii-glasses-single.png::CompressedTexture2D::3773455886379656557::1687047283::1687047286::1::::<><>::
+Atscii-Sheet.png::CompressedTexture2D::361135638634172313::1687045418::1687045421::1::::<><>::
+Atscii-single.png::CompressedTexture2D::4657312203871407454::1687047265::1687047286::1::::<><>::
+::res://Scenes/::1687047121
+player.tscn::PackedScene::7590202287179321227::1687047121::0::1::::<><>::uid://fe636814fca0<>res://Scripts/player.gd
+world.tscn::PackedScene::7615976703317899140::1687046952::0::1::::<><>::uid://dge0r1jjpsvvn
+::res://Scripts/::1687047121
+player.gd::GDScript::-1::1687047121::0::1::::<>Area2D<>::

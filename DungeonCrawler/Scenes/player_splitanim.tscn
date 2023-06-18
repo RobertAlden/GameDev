@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://dd4amuryks26b"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_510tv"]
+[ext_resource type="Texture2D" uid="uid://b7mbis2fiqy2i" path="res://ASSETS/Characters/Atscii-single.png" id="2_2wfw5"]
+[ext_resource type="Texture2D" uid="uid://bt05jc2wvgiy4" path="res://ASSETS/Characters/Atscii-glasses-single.png" id="3_eoseh"]
+
+[sub_resource type="Animation" id="Animation_k0lqw"]
+resource_name = "Idle"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Glasses:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -2), Vector2(0, 0), Vector2(0, 2), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_43sa5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Glasses:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q2jhy"]
+_data = {
+"Idle": SubResource("Animation_k0lqw"),
+"RESET": SubResource("Animation_43sa5")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thaaw"]
+size = Vector2(17, 17)
+
+[node name="Player-splitanim" type="Area2D"]
+script = ExtResource("1_510tv")
+
+[node name="Body" type="Sprite2D" parent="."]
+texture = ExtResource("2_2wfw5")
+
+[node name="Glasses" type="Sprite2D" parent="."]
+texture = ExtResource("3_eoseh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_q2jhy")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2)
+shape = SubResource("RectangleShape2D_thaaw")
