@@ -30,6 +30,6 @@ func _process(delta):
 func link(sys):
 	self.connections += [sys]
 	self.angles += [get_angle_to(sys.position)]
-	var p = portal.instance()
+	var p = portal.instantiate()
 	$Portals.add_child(p)
 	

@@ -19,18 +19,14 @@ func _ready():
 func _draw():
 	if displayGalaxy:
 		for c in $Systems.get_children():
-			draw_arc(c.position, c.radius, 0, TAU, 32, Color.white)
+			draw_arc(c.position, c.radius, 0, TAU, 32, Color.WHITE)
 			for i in c.connections.size():
 				var connectedSystem = c.connections[i]
 				var angle = c.angles[i]
 				var selfRingPos = Vector2((c.radius)*cos(angle),(c.radius)*sin(angle))
 				angle += PI
 				var destRingPos = Vector2((connectedSystem.radius)*cos(angle),(connectedSystem.radius)*sin(angle))
-				draw_line((c.position+selfRingPos), (connectedSystem.position+destRingPos), Color.white)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	update()
+				draw_line((c.position+selfRingPos), (connectedSystem.position+destRingPos), Color.WHITE)
 
 
 func _input(event):
@@ -53,7 +49,7 @@ func generate():
 	var angle = randf() * TAU
 	var distance = 10
 	for i in numOfSystems:
-		var s = systemScene.instance()
+		var s = systemScene.instantiate()
 		s.position = Vector2(distance*cos(angle),distance*sin(angle))
 		distance += 25 + randi() % 25
 		angle += angle_incr
@@ -64,7 +60,7 @@ func generate():
 		var systems = $Systems.get_children()
 		var src = systems[inc % systems.size()]
 		curr_node = src
-		systems.sort_custom(self,"dist_sort")
+		systems.sort_custom(Callable(self, "dist_sort"))
 		var dst = src
 		while src == dst:
 			dst = systems[randi() % (systems.size()-1) + 1]

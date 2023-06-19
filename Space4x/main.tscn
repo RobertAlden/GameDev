@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://dje84rrwijhop"]
 
-[ext_resource path="res://main.gd" type="Script" id=1]
-[ext_resource path="res://Galaxy.tscn" type="PackedScene" id=2]
+[ext_resource type="Script" path="res://main.gd" id="1"]
+[ext_resource type="PackedScene" path="res://Galaxy.tscn" id="2"]
 
 [node name="Main" type="Node2D"]
-script = ExtResource( 1 )
+script = ExtResource("1")
 
-[node name="Galaxy" parent="." instance=ExtResource( 2 )]
+[node name="Galaxy" parent="." instance=ExtResource("2")]
